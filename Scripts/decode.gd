@@ -29,18 +29,18 @@ func _on_text_edit_text_changed() -> void:
 	
 	if text_edit.text == "":
 		return
-	elif !int(text_edit.text) or len(text_edit.text) < 2:
+	elif !text_edit.text.is_valid_int() or len(text_edit.text) < 2:
 		error = true
 		label.add_theme_color_override(&"font_color", Color.hex(0xf38ba8ff))
 		label.text = "ERROR"
 		return
 	
-	var offset = int(text_edit.text[0])
+	var offset := int(text_edit.text[0])
 	
-	var i = 1
+	var i := 1
 	
 	while true:
-		var chr = ""
+		var chr := ""
 		
 		for j in int(text_edit.text[i]):
 			if len(text_edit.text) > i + j + 1:

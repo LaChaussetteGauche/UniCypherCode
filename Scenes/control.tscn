@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dritfvqno2qbd"]
 
-[ext_resource type="Script" uid="uid://duenjhcyg8tgg" path="res://control.gd" id="1_qtu10"]
-[ext_resource type="PackedScene" uid="uid://f7gqau348lam" path="res://decode.tscn" id="2_ee4bf"]
-[ext_resource type="FontFile" uid="uid://ce3udj4wrvttl" path="res://JetBrainsMonoNerdFontMono-Regular.ttf" id="2_kbped"]
-[ext_resource type="PackedScene" uid="uid://d3hir4cg5kkrd" path="res://encode.tscn" id="3_kbped"]
+[ext_resource type="Script" uid="uid://duenjhcyg8tgg" path="res://Scripts/control.gd" id="1_wpaqk"]
+[ext_resource type="FontFile" uid="uid://ce3udj4wrvttl" path="res://JetBrainsMonoNerdFontMono-Regular.ttf" id="2_btyrf"]
+[ext_resource type="PackedScene" uid="uid://d3hir4cg5kkrd" path="res://Scenes/encode.tscn" id="3_btyrf"]
+[ext_resource type="PackedScene" uid="uid://f7gqau348lam" path="res://Scenes/decode.tscn" id="4_dqysy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tcye"]
 bg_color = Color(0.34509805, 0.35686275, 0.4392157, 1)
@@ -48,7 +48,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Control" type="Node" unique_id=785502328]
-script = ExtResource("1_qtu10")
+script = ExtResource("1_wpaqk")
 
 [node name="Panel" type="Panel" parent="." unique_id=801948941]
 anchors_preset = 15
@@ -67,30 +67,30 @@ grow_vertical = 2
 theme_override_colors/font_selected_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 theme_override_colors/font_hovered_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 theme_override_colors/font_unselected_color = Color(0.42352942, 0.4392157, 0.5254902, 1)
-theme_override_fonts/font = ExtResource("2_kbped")
+theme_override_fonts/font = ExtResource("2_btyrf")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/panel = SubResource("StyleBoxFlat_qtu10")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_kbped")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_iy58a")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_fj5cn")
-current_tab = 2
+current_tab = 0
 tab_0/title = " Encodeur"
 tab_1/title = " Decodeur"
 tab_2/title = "󱊫 Raccourcis"
 
-[node name="Encode" parent="TabContainer" unique_id=1446872324 instance=ExtResource("3_kbped")]
-visible = false
+[node name="Encode" parent="TabContainer" unique_id=1446872324 instance=ExtResource("3_btyrf")]
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = " Encodeur"
 
-[node name="Decode" parent="TabContainer" unique_id=680072098 instance=ExtResource("2_ee4bf")]
+[node name="Decode" parent="TabContainer" unique_id=680072098 instance=ExtResource("4_dqysy")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = " Decodeur"
 
 [node name="Shortcuts" type="MarginContainer" parent="TabContainer" unique_id=960430162]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 60
@@ -102,7 +102,7 @@ metadata/_tab_name = "󱊫 Raccourcis"
 [node name="Label" type="Label" parent="TabContainer/Shortcuts" unique_id=1526399891]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_kbped")
+theme_override_fonts/font = ExtResource("2_btyrf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
 text = "Alt + C : Copier
 
