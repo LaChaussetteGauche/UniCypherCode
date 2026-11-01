@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dritfvqno2qbd"]
+
+[ext_resource type="Script" uid="uid://duenjhcyg8tgg" path="res://control.gd" id="1_qtu10"]
+[ext_resource type="PackedScene" uid="uid://f7gqau348lam" path="res://decode.tscn" id="2_ee4bf"]
+[ext_resource type="FontFile" uid="uid://ce3udj4wrvttl" path="res://JetBrainsMonoNerdFontMono-Regular.ttf" id="2_kbped"]
+[ext_resource type="PackedScene" uid="uid://d3hir4cg5kkrd" path="res://encode.tscn" id="3_kbped"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tcye"]
+bg_color = Color(0.34509805, 0.35686275, 0.4392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
+bg_color = Color(0.11764706, 0.11764706, 0.18039216, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbped"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy58a"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.19215687, 0.19607843, 0.26666668, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj5cn"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.11764706, 0.11764706, 0.18039216, 1)
+border_width_top = 2
+border_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
+content_margin_left = 100.0
+content_margin_top = 60.0
+content_margin_right = 100.0
+content_margin_bottom = 60.0
+bg_color = Color(0.06666667, 0.06666667, 0.105882354, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Control" type="Node" unique_id=785502328]
+script = ExtResource("1_qtu10")
+
+[node name="Panel" type="Panel" parent="." unique_id=801948941]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0tcye")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1922060294]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_selected_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
+theme_override_colors/font_hovered_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
+theme_override_colors/font_unselected_color = Color(0.42352942, 0.4392157, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_kbped")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/panel = SubResource("StyleBoxFlat_qtu10")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_kbped")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_iy58a")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_fj5cn")
+current_tab = 2
+tab_0/title = " Encodeur"
+tab_1/title = " Decodeur"
+tab_2/title = "󱊫 Raccourcis"
+
+[node name="Encode" parent="TabContainer" unique_id=1446872324 instance=ExtResource("3_kbped")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = " Encodeur"
+
+[node name="Decode" parent="TabContainer" unique_id=680072098 instance=ExtResource("2_ee4bf")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = " Decodeur"
+
+[node name="Shortcuts" type="MarginContainer" parent="TabContainer" unique_id=960430162]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 60
+metadata/_tab_index = 2
+metadata/_tab_name = "󱊫 Raccourcis"
+
+[node name="Label" type="Label" parent="TabContainer/Shortcuts" unique_id=1526399891]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_kbped")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
+text = "Alt + C : Copier
+
+Alt + V : Coller
+
+Alt + W : Nettoyer
+
+Alt + S : Switcher encodeur/décodeur
+
+Alt + X : Sélectionner la zone de texte (nécessaire pour y écrire)"
+vertical_alignment = 1
