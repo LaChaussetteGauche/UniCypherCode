@@ -1,40 +1,47 @@
 [gd_scene format=3 uid="uid://dritfvqno2qbd"]
 
-[ext_resource type="Script" uid="uid://duenjhcyg8tgg" path="res://Scripts/control.gd" id="1_wpaqk"]
+[ext_resource type="Script" uid="uid://duenjhcyg8tgg" path="res://Desktop/Scripts/control_desktop.gd" id="1_wpaqk"]
 [ext_resource type="FontFile" uid="uid://ce3udj4wrvttl" path="res://JetBrainsMonoNerdFontMono-Regular.ttf" id="2_btyrf"]
-[ext_resource type="PackedScene" uid="uid://d3hir4cg5kkrd" path="res://Scenes/encode.tscn" id="3_btyrf"]
-[ext_resource type="PackedScene" uid="uid://f7gqau348lam" path="res://Scenes/decode.tscn" id="4_dqysy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tcye"]
-bg_color = Color(0.34509805, 0.35686275, 0.4392157, 1)
+[ext_resource type="PackedScene" uid="uid://d3hir4cg5kkrd" path="res://Desktop/Scenes/encode_desktop.tscn" id="3_btyrf"]
+[ext_resource type="PackedScene" uid="uid://f7gqau348lam" path="res://Desktop/Scenes/decode_desktop.tscn" id="4_dqysy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
 bg_color = Color(0.11764706, 0.11764706, 0.18039216, 1)
-corner_radius_top_left = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acgkq"]
+bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
+corner_radius_top_left = 10
 corner_radius_top_right = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbped"]
-content_margin_left = 10.0
+content_margin_left = 15.0
 content_margin_top = 4.0
-content_margin_right = 10.0
+content_margin_right = 15.0
 content_margin_bottom = 4.0
 bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
+corner_radius_top_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy58a"]
-content_margin_left = 10.0
+content_margin_left = 15.0
 content_margin_top = 4.0
-content_margin_right = 10.0
+content_margin_right = 15.0
 content_margin_bottom = 4.0
 bg_color = Color(0.19215687, 0.19607843, 0.26666668, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj5cn"]
-content_margin_left = 10.0
+content_margin_left = 15.0
 content_margin_top = 4.0
-content_margin_right = 10.0
+content_margin_right = 15.0
 content_margin_bottom = 4.0
 bg_color = Color(0.11764706, 0.11764706, 0.18039216, 1)
+border_width_left = 2
 border_width_top = 2
 border_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
+corner_radius_top_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
 content_margin_left = 100.0
@@ -50,26 +57,37 @@ corner_radius_bottom_left = 4
 [node name="Control" type="Node" unique_id=785502328]
 script = ExtResource("1_wpaqk")
 
-[node name="Panel" type="Panel" parent="." unique_id=801948941]
+[node name="Panel" type="ColorRect" parent="." unique_id=153375327]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0tcye")
+color = Color(0.06666667, 0.06666667, 0.105882354, 1)
 
-[node name="TabContainer" type="TabContainer" parent="." unique_id=1922060294]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1403101463]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer" unique_id=1922060294]
+layout_mode = 2
 theme_override_colors/font_selected_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 theme_override_colors/font_hovered_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 theme_override_colors/font_unselected_color = Color(0.42352942, 0.4392157, 0.5254902, 1)
+theme_override_constants/side_margin = 0
+theme_override_constants/tab_separation = 8
 theme_override_fonts/font = ExtResource("2_btyrf")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/panel = SubResource("StyleBoxFlat_qtu10")
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_acgkq")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_kbped")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_iy58a")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_fj5cn")
@@ -78,18 +96,18 @@ tab_0/title = " Encodeur"
 tab_1/title = " Decodeur"
 tab_2/title = "󱊫 Raccourcis"
 
-[node name="Encode" parent="TabContainer" unique_id=1446872324 instance=ExtResource("3_btyrf")]
+[node name="Encode" parent="Panel/MarginContainer/TabContainer" unique_id=1446872324 instance=ExtResource("3_btyrf")]
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = " Encodeur"
 
-[node name="Decode" parent="TabContainer" unique_id=680072098 instance=ExtResource("4_dqysy")]
+[node name="Decode" parent="Panel/MarginContainer/TabContainer" unique_id=680072098 instance=ExtResource("4_dqysy")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = " Decodeur"
 
-[node name="Shortcuts" type="MarginContainer" parent="TabContainer" unique_id=960430162]
+[node name="Shortcuts" type="MarginContainer" parent="Panel/MarginContainer/TabContainer" unique_id=960430162]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 100
@@ -99,7 +117,7 @@ theme_override_constants/margin_bottom = 60
 metadata/_tab_index = 2
 metadata/_tab_name = "󱊫 Raccourcis"
 
-[node name="Label" type="Label" parent="TabContainer/Shortcuts" unique_id=1526399891]
+[node name="Label" type="Label" parent="Panel/MarginContainer/TabContainer/Shortcuts" unique_id=1526399891]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_btyrf")
@@ -114,3 +132,4 @@ Alt + S : Switcher encodeur/décodeur
 
 Alt + X : Sélectionner la zone de texte (nécessaire pour y écrire)"
 vertical_alignment = 1
+autowrap_mode = 3
