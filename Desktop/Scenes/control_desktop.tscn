@@ -2,46 +2,9 @@
 
 [ext_resource type="Script" uid="uid://duenjhcyg8tgg" path="res://Desktop/Scripts/control_desktop.gd" id="1_wpaqk"]
 [ext_resource type="FontFile" uid="uid://ce3udj4wrvttl" path="res://JetBrainsMonoNerdFontMono-Regular.ttf" id="2_btyrf"]
+[ext_resource type="Theme" uid="uid://c40cl12jeoyx4" path="res://Desktop/theme.tres" id="2_ucxo1"]
 [ext_resource type="PackedScene" uid="uid://d3hir4cg5kkrd" path="res://Desktop/Scenes/encode_desktop.tscn" id="3_btyrf"]
 [ext_resource type="PackedScene" uid="uid://f7gqau348lam" path="res://Desktop/Scenes/decode_desktop.tscn" id="4_dqysy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
-bg_color = Color(0.11764706, 0.11764706, 0.18039216, 1)
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acgkq"]
-bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbped"]
-content_margin_left = 15.0
-content_margin_top = 4.0
-content_margin_right = 15.0
-content_margin_bottom = 4.0
-bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
-corner_radius_top_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy58a"]
-content_margin_left = 15.0
-content_margin_top = 4.0
-content_margin_right = 15.0
-content_margin_bottom = 4.0
-bg_color = Color(0.19215687, 0.19607843, 0.26666668, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj5cn"]
-content_margin_left = 15.0
-content_margin_top = 4.0
-content_margin_right = 15.0
-content_margin_bottom = 4.0
-bg_color = Color(0.11764706, 0.11764706, 0.18039216, 1)
-border_width_left = 2
-border_width_top = 2
-border_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-corner_radius_top_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
 content_margin_left = 100.0
@@ -79,18 +42,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer" unique_id=1922060294]
 layout_mode = 2
-theme_override_colors/font_selected_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_hovered_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_unselected_color = Color(0.42352942, 0.4392157, 0.5254902, 1)
-theme_override_constants/side_margin = 0
-theme_override_constants/tab_separation = 8
-theme_override_fonts/font = ExtResource("2_btyrf")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/panel = SubResource("StyleBoxFlat_qtu10")
-theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_acgkq")
-theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_kbped")
-theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_iy58a")
-theme_override_styles/tab_selected = SubResource("StyleBoxFlat_fj5cn")
+theme = ExtResource("2_ucxo1")
 current_tab = 0
 tab_0/title = " Encodeur"
 tab_1/title = " Decodeur"

@@ -1,136 +1,7 @@
 [gd_scene format=3 uid="uid://f7gqau348lam"]
 
 [ext_resource type="Script" uid="uid://bugrpux1d4bbv" path="res://Desktop/Scripts/decode_desktop.gd" id="1_wa3j5"]
-[ext_resource type="FontFile" uid="uid://ce3udj4wrvttl" path="res://JetBrainsMonoNerdFontMono-Regular.ttf" id="2_or4dg"]
-[ext_resource type="Theme" uid="uid://c40cl12jeoyx4" path="res://Desktop/optionbutton.tres" id="3_enoum"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvs0n"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-bg_color = Color(0.06666667, 0.06666667, 0.105882354, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjeav"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-bg_color = Color(0.06666667, 0.06666667, 0.105882354, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hanh1"]
-bg_color = Color(0.19215687, 0.19607843, 0.26666668, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m678q"]
-bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ahl3"]
-bg_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnbte"]
-bg_color = Color(0.19215687, 0.19607843, 0.26666668, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrgad"]
-bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si0n3"]
-bg_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qldwk"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.19215687, 0.19607843, 0.26666668, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uf71"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sv5f2"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft6e2"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-bg_color = Color(0.06666667, 0.06666667, 0.105882354, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6j6gm"]
-bg_color = Color(0.19215687, 0.19607843, 0.26666668, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4br0b"]
-bg_color = Color(0.09411765, 0.09411765, 0.14509805, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmxef"]
-bg_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[ext_resource type="Theme" uid="uid://c40cl12jeoyx4" path="res://Desktop/theme.tres" id="3_enoum"]
 
 [node name="Decode" type="Control" unique_id=680072098]
 layout_mode = 3
@@ -166,13 +37,7 @@ theme_override_constants/separation = 8
 [node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1807424194]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/caret_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/selection_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
-theme_override_colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_placeholder_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
-theme_override_fonts/font = ExtResource("2_or4dg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mvs0n")
-theme_override_styles/focus = SubResource("StyleBoxFlat_yjeav")
+theme = ExtResource("3_enoum")
 placeholder_text = "Texte à décoder..."
 backspace_deletes_composite_character_enabled = true
 wrap_mode = 1
@@ -187,25 +52,13 @@ theme_override_constants/separation = 8
 [node name="ClearButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=519799908]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_pressed_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_hover_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_fonts/font = ExtResource("2_or4dg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_hanh1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m678q")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7ahl3")
+theme = ExtResource("3_enoum")
 text = " Nettoyer"
 
 [node name="PasteButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1860033812]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_pressed_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_hover_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_fonts/font = ExtResource("2_or4dg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_dnbte")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lrgad")
-theme_override_styles/hover = SubResource("StyleBoxFlat_si0n3")
+theme = ExtResource("3_enoum")
 text = " COLLER"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1285264959]
@@ -218,22 +71,14 @@ theme_override_constants/separation = 32
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_pressed_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_hover_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_fonts/font = ExtResource("2_or4dg")
+theme = ExtResource("3_enoum")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_qldwk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4uf71")
-theme_override_styles/hover = SubResource("StyleBoxFlat_sv5f2")
 text = ""
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1052897572]
 custom_minimum_size = Vector2(0, 43)
 layout_mode = 2
 theme = ExtResource("3_enoum")
-theme_override_fonts/font = ExtResource("2_or4dg")
-theme_override_font_sizes/font_size = 16
 alignment = 1
 selected = 0
 item_count = 5
@@ -263,21 +108,13 @@ custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_fonts/font = ExtResource("2_or4dg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ft6e2")
+theme = ExtResource("3_enoum")
 autowrap_mode = 1
 
 [node name="CopyButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1387204444]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_pressed_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_colors/font_hover_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
-theme_override_fonts/font = ExtResource("2_or4dg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_6j6gm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4br0b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_gmxef")
+theme = ExtResource("3_enoum")
 text = " COPIER"
 
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]

@@ -1,43 +1,50 @@
 extends Control
+class_name Encode
 
 @onready var text_edit: TextEdit = $MarginContainer/HBoxContainer/VBoxContainer/TextEdit
 @onready var line_edit: LineEdit = $MarginContainer/HBoxContainer/VBoxContainer3/LineEdit
 @onready var label: Label = $MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer/Label
 
 var has_error := false
-var previously_had_error := false
 
 
+# Gère les raccourcis claviers et évite un bug de Godot sur X11:
+# https://github.com/godotengine/godot/pull/125594
 func input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("clear"):
 		_on_clear_button_pressed()
+		text_edit.release_focus()
 	if Input.is_action_just_pressed("copy"):
 		_on_copy_button_pressed()
+		text_edit.release_focus()
 	if Input.is_action_just_pressed("paste"):
 		_on_paste_button_pressed()
+		text_edit.release_focus()
 	if Input.is_action_just_pressed("switch"):
 		_on_switch_button_pressed()
 	if Input.is_action_just_pressed("focus"):
 		text_edit.grab_focus()
+		text_edit.editable = false
+		await get_tree().create_timer(0.1).timeout
+		text_edit.editable = true
 
+# Change la valeur de TextEdit et réencode
 func set_value(value: String) -> void:
 	text_edit.text = value
 	_on_text_edit_text_changed()
 
+# Signale une erreur
 func error() -> void:
 	has_error = true
 	label.add_theme_color_override(&"font_color", Color.hex(0xf38ba8ff))
 	label.text = "ERROR"
-	owner.set_background_color(Color.hex(0xf38ba8ff))
 
+# Actualise l'encodage de TextEdit et l'affiche dans Label
 func _on_text_edit_text_changed() -> void:
 	has_error = false
 	label.add_theme_color_override(&"font_color", Color.hex(0xcdd6f4ff))
 	if text_edit.text == "":
 		label.text = ""
-		if previously_had_error:
-			owner.set_background_color(Color.hex(0x11111bff))
-		previously_had_error = has_error
 		return
 	
 	var offset: int
@@ -46,14 +53,9 @@ func _on_text_edit_text_changed() -> void:
 			offset = int(line_edit.text)
 		else:
 			error()
-			previously_had_error = has_error
 			return
 	else:
 		offset = randi_range(1, 9)
-	
-	if previously_had_error:
-		owner.set_background_color(Color.hex(0x11111bff))
-	previously_had_error = has_error
 	
 	#label.text = str(offset)
 	#for i in len(text_edit.text):
@@ -62,6 +64,7 @@ func _on_text_edit_text_changed() -> void:
 	
 	label.text = encode(text_edit.text, offset)
 
+# Encode le texte et le renvoie
 func encode(value: String, offset: int) -> String:
 	var encoded_string := add_recursive_index(str(offset))
 	
@@ -71,6 +74,7 @@ func encode(value: String, offset: int) -> String:
 	
 	return encoded_string
 
+# Permet d'encoder des nombres avec plus de chiffres
 func add_recursive_index(value: String) -> String:
 	var result := ""
 	if len(value) > 1:
@@ -87,24 +91,27 @@ func add_recursive_index(value: String) -> String:
 	
 	return result + value
 
+
+# Copie le texte de Label s'il n'y a pas d'erreur
 func _on_copy_button_pressed() -> void:
 	if !has_error:
 		DisplayServer.clipboard_set(label.text)
 
-
+# Passe la fonction switch à Control
 func _on_switch_button_pressed() -> void:
 	owner.switch(label.text)
 
-
+# Colle le presse-papier dans TextEdit
 func _on_paste_button_pressed() -> void:
 	text_edit.text = DisplayServer.clipboard_get()
 	_on_text_edit_text_changed()
 
-
+# Enlève le texte de TextEdit
 func _on_clear_button_pressed() -> void:
 	text_edit.text = ""
 	_on_text_edit_text_changed()
 
 
+# Réactualise l'encodage
 func _on_line_edit_text_changed(_new_text: String) -> void:
 	_on_text_edit_text_changed()
