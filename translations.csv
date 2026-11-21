@@ -1,0 +1,27 @@
+key,fr,en
+CLEAR_BUTTON, Nettoyer, Clear
+PASTE_BUTTON, Coller, Paste
+COPY_BUTTON, Copier, Copy
+ENCODE_PLACEHOLDER,Texte à encoder…,Text to encode…
+DECODE_PLACEHOLDER,Texte à décoder…,Text to decode…
+OFFSET,Décalage,Offset
+ENCODE_TAB, Encodeur, Encode
+DECODE_TAB, Décodeur, Decode
+SHORTCUTS_TAB,󱊫 Raccourcis,󱊫 Shortcuts
+SHORTCUTS_LABEL,"Alt + C : Copier
+
+Alt + V : Coller
+
+Alt + W : Nettoyer
+
+Alt + S : Switcher encodeur/décodeur
+
+Alt + X : Sélectionner la zone de texte (nécessaire pour y écrire)","Alt + C : Copy
+
+Alt + V : Paste
+
+Alt + W : Clear
+
+Alt + S : Switch encode/decode
+
+Alt + X : Focus the text area (needed to write into)"

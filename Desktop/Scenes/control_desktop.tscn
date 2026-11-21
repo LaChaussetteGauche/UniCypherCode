@@ -44,21 +44,21 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme = ExtResource("2_ucxo1")
 current_tab = 2
-tab_0/title = " Encodeur"
-tab_1/title = " Decodeur"
-tab_2/title = "󱊫 Raccourcis"
+tab_0/title = "ENCODE_TAB"
+tab_1/title = "DECODE_TAB"
+tab_2/title = "SHORTCUTS_TAB"
 
 [node name="Encode" parent="Panel/MarginContainer/TabContainer" unique_id=1446872324 instance=ExtResource("3_btyrf")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
-metadata/_tab_name = " Encodeur"
+metadata/_tab_name = "ENCODE_TAB"
 
 [node name="Decode" parent="Panel/MarginContainer/TabContainer" unique_id=680072098 instance=ExtResource("4_dqysy")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
-metadata/_tab_name = " Decodeur"
+metadata/_tab_name = "DECODE_TAB"
 
 [node name="Shortcuts" type="MarginContainer" parent="Panel/MarginContainer/TabContainer" unique_id=960430162]
 layout_mode = 2
@@ -67,7 +67,7 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 60
 metadata/_tab_index = 2
-metadata/_tab_name = "󱊫 Raccourcis"
+metadata/_tab_name = "SHORTCUTS_TAB"
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/TabContainer/Shortcuts" unique_id=1526399891]
 custom_minimum_size = Vector2(1, 0)
@@ -75,14 +75,6 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_btyrf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
-text = "Alt + C : Copier
-
-Alt + V : Coller
-
-Alt + W : Nettoyer
-
-Alt + S : Switcher encodeur/décodeur
-
-Alt + X : Sélectionner la zone de texte (nécessaire pour y écrire)"
+text = "SHORTCUTS_LABEL"
 vertical_alignment = 1
 autowrap_mode = 3

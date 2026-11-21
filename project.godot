@@ -60,6 +60,10 @@ shortcuts={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations.fr.translation", "res://translations.en.translation")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -38,7 +38,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_gekn8")
-placeholder_text = "Texte à encoder..."
+placeholder_text = "ENCODE_PLACEHOLDER"
 backspace_deletes_composite_character_enabled = true
 wrap_mode = 1
 autowrap_mode = 1
@@ -53,13 +53,13 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_gekn8")
-text = " Nettoyer"
+text = "CLEAR_BUTTON"
 
 [node name="PasteButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=937411517]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_gekn8")
-text = " COLLER"
+text = "PASTE_BUTTON"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=773688690]
 custom_minimum_size = Vector2(100, 0)
@@ -78,7 +78,7 @@ text = ""
 custom_minimum_size = Vector2(90, 43)
 layout_mode = 2
 theme = ExtResource("2_gekn8")
-placeholder_text = "Décalage"
+placeholder_text = "OFFSET"
 alignment = 1
 max_length = 18
 caret_blink = true
@@ -104,7 +104,7 @@ autowrap_mode = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("2_gekn8")
-text = " COPIER"
+text = "COPY_BUTTON"
 
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]
