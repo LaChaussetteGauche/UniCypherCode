@@ -18,8 +18,8 @@ func _input(event: InputEvent) -> void:
 		decode.input(event)
 
 func _ready() -> void:
-	print(OS.get_locale_language())
-	TranslationServer.set_locale(OS.get_locale_language())
+	#TranslationServer.set_locale(OS.get_locale_language())
+	TranslationServer.set_locale("es")
 
 # Met l'arrière-plan en rouge s'il y a une erreur sur l'onglet actuel
 func _process(_delta: float) -> void:
