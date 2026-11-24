@@ -67,6 +67,12 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 32
 
+[node name="OffsetButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=2037607286]
+custom_minimum_size = Vector2(0, 43)
+layout_mode = 2
+theme = ExtResource("3_enoum")
+text = "OFFSET"
+
 [node name="SwitchButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=948846570]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
@@ -120,6 +126,7 @@ text = "COPY_BUTTON"
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PasteButton" to="." method="_on_paste_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer3/OffsetButton" to="." method="_on_offset_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer3/SwitchButton" to="." method="_on_switch_button_pressed"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/VBoxContainer3/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CopyButton" to="." method="_on_copy_button_pressed"]

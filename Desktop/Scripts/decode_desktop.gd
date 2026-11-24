@@ -1,11 +1,13 @@
 extends Control
 class_name Decode
 
+@onready var offset_button: Button = $MarginContainer/HBoxContainer/VBoxContainer3/OffsetButton
 @onready var text_edit: TextEdit = $MarginContainer/HBoxContainer/VBoxContainer/TextEdit
 @onready var label: Label = $MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer/Label
 
 var has_error := false
 var version := 3
+var str_offset: String
 
 
 # Gère les raccourcis claviers et évite un bug de Godot sur X11:
@@ -47,6 +49,7 @@ func _on_text_edit_text_changed() -> void:
 	
 	if text_edit.text == "":
 		label.text = ""
+		offset_button.text = "OFFSET"
 		return
 	elif !text_edit.text.is_valid_int() or len(text_edit.text) < 2:
 		error()
@@ -59,6 +62,8 @@ func _on_text_edit_text_changed() -> void:
 			text = decode_2(text_edit.text)
 		1:
 			text = decode_1(text_edit.text)
+	
+	offset_button.text = str_offset
 	
 	if text == "ERROR":
 		error()
@@ -125,6 +130,7 @@ func decode(value: String) -> String:
 		
 		result = result + chr
 	
+	str_offset = str(offset)
 	return result
 
 # Décode le texte et le renvoie (v2.0)
@@ -152,6 +158,7 @@ func decode_2(value: String) -> String:
 		if i >= len(value):
 			break
 	
+	str_offset = str(offset)
 	return result
 
 # Décode le texte et le renvoie (v1.0)
@@ -177,6 +184,7 @@ func decode_1(value: String) -> String:
 		if i >= len(value):
 			break
 	
+	str_offset = "0"
 	return result
 
 
@@ -184,6 +192,14 @@ func decode_1(value: String) -> String:
 func _on_copy_button_pressed() -> void:
 	if !has_error:
 		DisplayServer.clipboard_set(label.text)
+
+# Copie le texte du bouton
+func _on_offset_button_pressed() -> void:
+	if !has_error and offset_button.text.is_valid_int():
+		DisplayServer.clipboard_set(offset_button.text)
+		offset_button.text = "COPIED_OFFSET"
+		await get_tree().create_timer(1.0).timeout
+		offset_button.text = str_offset
 
 # Passe la fonction switch à Control
 func _on_switch_button_pressed() -> void:
