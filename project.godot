@@ -19,6 +19,10 @@ boot_splash/bg_color=Color(0.06666667, 0.06666667, 0.105882354, 1)
 boot_splash/show_image=false
 config/icon="uid://dx4p0enhkjcak"
 
+[autoload]
+
+ConfigFileHandler="*uid://cy2onn8ekbq7f"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1
