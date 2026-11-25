@@ -3,6 +3,7 @@ class_name Encode
 
 @onready var text_edit: TextEdit = $MarginContainer/HBoxContainer/VBoxContainer/TextEdit
 @onready var line_edit: LineEdit = $MarginContainer/HBoxContainer/VBoxContainer3/LineEdit
+@onready var option_button: OptionButton = $MarginContainer/HBoxContainer/VBoxContainer3/OptionButton
 @onready var label: Label = $MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer/Label
 
 var has_error := false
@@ -32,6 +33,31 @@ func input(_event: InputEvent) -> void:
 # Change la valeur de TextEdit et réencode
 func set_value(value: String) -> void:
 	text_edit.text = value
+	_on_text_edit_text_changed()
+
+# Actualise la version demandée et change les options visuelles selon le support
+# de chaque version
+func set_version(ver: int) -> void:
+	match ver:
+		3:
+			version = 3
+			line_edit.editable = true
+			line_edit.max_length = 18
+			line_edit.text = ""
+			option_button.select(2)
+		2:
+			version = 2
+			line_edit.editable = true
+			line_edit.max_length = 1
+			line_edit.text = ""
+			option_button.select(3)
+		1:
+			version = 1
+			line_edit.editable = false
+			line_edit.text = ""
+			option_button.select(4)
+		_:
+			return
 	_on_text_edit_text_changed()
 
 # Signale une erreur
@@ -121,7 +147,10 @@ func _on_copy_button_pressed() -> void:
 
 # Passe la fonction switch à Control
 func _on_switch_button_pressed() -> void:
-	owner.switch(label.text)
+	if has_error:
+		owner.switch("")
+	else:
+		owner.switch(label.text, version)
 
 # Colle le presse-papier dans TextEdit
 func _on_paste_button_pressed() -> void:
@@ -141,17 +170,8 @@ func _on_line_edit_text_changed(_new_text: String) -> void:
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
 		2:
-			version = 3
-			line_edit.editable = true
-			line_edit.max_length = 18
-			line_edit.text = ""
+			set_version(3)
 		3:
-			version = 2
-			line_edit.editable = true
-			line_edit.max_length = 1
-			line_edit.text = ""
+			set_version(2)
 		4:
-			version = 1
-			line_edit.editable = false
-			line_edit.text = ""
-	_on_text_edit_text_changed()
+			set_version(1)

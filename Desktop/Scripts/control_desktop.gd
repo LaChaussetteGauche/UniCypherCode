@@ -29,15 +29,19 @@ func _process(_delta: float) -> void:
 			set_background_color(Color.hex(0x11111bff))
 
 # Alterne entre encode et decode et passe l'output de l'un dans l'input de l'autre
-func switch(value: String) -> void:
+func switch(value: String, version: int = 0) -> void:
 	if encode.visible:
 		decode.show()
 		decode.text_edit.release_focus()
+		if version > 0:
+			decode.set_version(version)
 		if value != "":
 			decode.set_value(value)
 	else:
 		encode.show()
 		encode.text_edit.release_focus()
+		if version > 0:
+			encode.set_version(version)
 		if value != "":
 			encode.set_value(value)
 

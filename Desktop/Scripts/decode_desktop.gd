@@ -1,8 +1,9 @@
 extends Control
 class_name Decode
 
-@onready var offset_button: Button = $MarginContainer/HBoxContainer/VBoxContainer3/OffsetButton
 @onready var text_edit: TextEdit = $MarginContainer/HBoxContainer/VBoxContainer/TextEdit
+@onready var offset_button: Button = $MarginContainer/HBoxContainer/VBoxContainer3/OffsetButton
+@onready var option_button: OptionButton = $MarginContainer/HBoxContainer/VBoxContainer3/OptionButton
 @onready var label: Label = $MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer/Label
 
 var has_error := false
@@ -33,6 +34,23 @@ func input(_event: InputEvent) -> void:
 # Change la valeur de TextEdit et redécode
 func set_value(value: String) -> void:
 	text_edit.text = value
+	_on_text_edit_text_changed()
+
+# Actualise la version demandée
+func set_version(ver: int) -> void:
+	match ver:
+		3:
+			version = 3
+			option_button.select(2)
+		2:
+			version = 2
+			option_button.select(3)
+		1:
+			version = 1
+			option_button.select(4)
+		_:
+			return
+	
 	_on_text_edit_text_changed()
 
 # Signale une erreur
@@ -104,6 +122,8 @@ func decode(value: String) -> String:
 		var chr := ""
 		recursiveness = int(value[i])
 		if recursiveness == 0:
+			if i + 1 >= len(value):
+				return "ERROR"
 			chr = String.chr(int(value[i + 1]) - offset)
 			i += 2
 		else:
@@ -206,7 +226,7 @@ func _on_switch_button_pressed() -> void:
 	if has_error:
 		owner.switch("")
 	else:
-		owner.switch(label.text)
+		owner.switch(label.text, version)
 
 # Colle le presse-papier dans TextEdit
 func _on_paste_button_pressed() -> void:
@@ -219,16 +239,12 @@ func _on_clear_button_pressed() -> void:
 	_on_text_edit_text_changed()
 
 
-# Définit la version de décodage et réactualise
+# Mets à jour la version utilisée
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
-		0:
-			version = 3
 		2:
-			version = 3
+			set_version(3)
 		3:
-			version = 2
+			set_version(2)
 		4:
-			version = 1
-	
-	_on_text_edit_text_changed()
+			set_version(1)
