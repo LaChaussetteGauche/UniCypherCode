@@ -6,6 +6,7 @@ class_name Encode
 @onready var label: Label = $MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer/Label
 
 var has_error := false
+var version := 3
 
 
 # Gère les raccourcis claviers et évite un bug de Godot sur X11:
@@ -49,7 +50,7 @@ func _on_text_edit_text_changed() -> void:
 	
 	var offset: int
 	if line_edit.text != "":
-		if line_edit.text.is_valid_int():
+		if line_edit.text.is_valid_int() or version == 1:
 			offset = int(line_edit.text)
 		else:
 			error()
@@ -57,20 +58,41 @@ func _on_text_edit_text_changed() -> void:
 	else:
 		offset = randi_range(1, 9)
 	
-	#label.text = str(offset)
-	#for i in len(text_edit.text):
-		#var unicode := str(text_edit.text.unicode_at(i) + offset)
-		#label.text = label.text + str(len(unicode)) + unicode
-	
-	label.text = encode(text_edit.text, offset)
+	match version:
+		3:
+			label.text = encode(text_edit.text, offset)
+		2:
+			label.text = encode_2(text_edit.text, offset)
+		1:
+			label.text = encode_1(text_edit.text, offset)
 
-# Encode le texte et le renvoie
+# Encode le texte et le renvoie (v3.0)
 func encode(value: String, offset: int) -> String:
 	var encoded_string := add_recursive_index(str(offset))
 	
 	for i in len(value):
 		var unicode := str(value.unicode_at(i) + offset)
 		encoded_string = encoded_string + add_recursive_index(unicode)
+	
+	return encoded_string
+
+# Encode le texte et le renvoie (v2.0)
+func encode_2(value: String, offset: int) -> String:
+	var encoded_string := str(offset)
+	
+	for i in len(value):
+		var unicode := str(value.unicode_at(i) + offset)
+		encoded_string = encoded_string + str(len(unicode)) + unicode
+	
+	return encoded_string
+
+# Encode le texte et le renvoie (v2.0)
+func encode_1(value: String, _offset: int) -> String:
+	var encoded_string := ""
+	
+	for i in len(value):
+		var unicode := str(value.unicode_at(i))
+		encoded_string = encoded_string + str(len(unicode)) + unicode
 	
 	return encoded_string
 
@@ -111,7 +133,25 @@ func _on_clear_button_pressed() -> void:
 	text_edit.text = ""
 	_on_text_edit_text_changed()
 
-
 # Réactualise l'encodage
 func _on_line_edit_text_changed(_new_text: String) -> void:
+	_on_text_edit_text_changed()
+
+# Mets à jour la version utilisée
+func _on_option_button_item_selected(index: int) -> void:
+	match index:
+		2:
+			version = 3
+			line_edit.editable = true
+			line_edit.max_length = 18
+			line_edit.text = ""
+		3:
+			version = 2
+			line_edit.editable = true
+			line_edit.max_length = 1
+			line_edit.text = ""
+		4:
+			version = 1
+			line_edit.editable = false
+			line_edit.text = ""
 	_on_text_edit_text_changed()

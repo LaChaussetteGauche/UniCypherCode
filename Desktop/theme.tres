@@ -43,6 +43,13 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ofns"]
+bg_color = Color(0.11764706, 0.11764706, 0.18039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5soni"]
 bg_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
 corner_radius_top_left = 4
@@ -177,8 +184,10 @@ Label/styles/normal = SubResource("StyleBoxFlat_1tk4a")
 LineEdit/colors/caret_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 LineEdit/colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 LineEdit/colors/font_placeholder_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
+LineEdit/colors/font_uneditable_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
 LineEdit/fonts/font = ExtResource("1_krggq")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_11wk4")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_3ofns")
 OptionButton/colors/font_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 OptionButton/colors/font_focus_color = Color(0.8039216, 0.8392157, 0.95686275, 1)
 OptionButton/colors/font_hover_color = Color(0.8039216, 0.8392157, 0.95686275, 1)

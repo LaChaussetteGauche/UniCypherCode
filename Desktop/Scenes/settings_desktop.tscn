@@ -66,4 +66,25 @@ layout_mode = 2
 size_flags_horizontal = 10
 alignment = 1
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=761462287]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1497983993]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
+theme_override_font_sizes/font_size = 16
+text = "Made with"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1081570961]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.27058825, 0.2784314, 0.3529412, 1)
+theme_override_font_sizes/font_size = 24
+text = ""
+
 [connection signal="item_selected" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]

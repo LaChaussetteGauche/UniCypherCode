@@ -67,13 +67,6 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 32
 
-[node name="SwitchButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1734408119]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("2_gekn8")
-theme_override_font_sizes/font_size = 32
-text = ""
-
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=701603504]
 custom_minimum_size = Vector2(90, 43)
 layout_mode = 2
@@ -82,6 +75,32 @@ placeholder_text = "OFFSET"
 alignment = 1
 max_length = 18
 caret_blink = true
+
+[node name="SwitchButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1734408119]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_gekn8")
+theme_override_font_sizes/font_size = 32
+text = ""
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=944543105]
+custom_minimum_size = Vector2(0, 43)
+layout_mode = 2
+theme = ExtResource("2_gekn8")
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "Version"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/id = 1
+popup/item_1/separator = true
+popup/item_2/text = "v3.0"
+popup/item_2/id = 2
+popup/item_3/text = "v2.0"
+popup/item_3/id = 3
+popup/item_4/text = "v1.0"
+popup/item_4/id = 4
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=989467949]
 layout_mode = 2
@@ -109,6 +128,7 @@ text = "COPY_BUTTON"
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PasteButton" to="." method="_on_paste_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer3/SwitchButton" to="." method="_on_switch_button_pressed"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer3/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer3/SwitchButton" to="." method="_on_switch_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/VBoxContainer3/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CopyButton" to="." method="_on_copy_button_pressed"]

@@ -31,13 +31,15 @@ func _process(_delta: float) -> void:
 # Alterne entre encode et decode et passe l'output de l'un dans l'input de l'autre
 func switch(value: String) -> void:
 	if encode.visible:
-		decode.set_value(value)
 		decode.show()
 		decode.text_edit.release_focus()
+		if value != "":
+			decode.set_value(value)
 	else:
-		encode.set_value(value)
 		encode.show()
 		encode.text_edit.release_focus()
+		if value != "":
+			encode.set_value(value)
 
 # Animation de changement de couleur pour l'arrière-plan
 func set_background_color(color: Color) -> void:
