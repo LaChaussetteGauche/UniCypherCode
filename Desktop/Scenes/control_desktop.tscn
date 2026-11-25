@@ -7,6 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://f7gqau348lam" path="res://Desktop/Scenes/decode_desktop.tscn" id="4_dqysy"]
 [ext_resource type="PackedScene" uid="uid://c4mtrb6a3tq0e" path="res://Desktop/Scenes/settings_desktop.tscn" id="6_gkbvx"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jb6w"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.3137255)
+shadow_size = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
 content_margin_left = 100.0
 content_margin_top = 60.0
@@ -40,6 +49,10 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="Shadow" type="Panel" parent="Panel/MarginContainer" unique_id=906068983]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jb6w")
 
 [node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer" unique_id=1922060294]
 layout_mode = 2
